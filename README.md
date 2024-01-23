@@ -7,8 +7,6 @@ asdsad
 asdasddasdasd
 asdas
 dasd
-asd
-asd
 as
 das
 das
