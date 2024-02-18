@@ -7,6 +7,14 @@
     --text-black-900:#302e4d;
     --text-black-700:#504e70;    
 }
+body.dark
+{
+    --bg-black-900:#151515;
+    --bg-black-100:#222222;
+    --bg-black-50:#393939;
+    --text-black-900:#ffffff;
+    --text-black-700:#e9e9e9;
+}
 body
 {
     line-height: 1.5;
@@ -35,15 +43,42 @@ ul
     min-height: 100vh;
     display: block;
     padding: 0 30px;
-    opacity: 2;
+    opacity: 1;
+    position: fixed;
+    left: 270px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    transition: all 0.3s ease;
+
+}
+.section.back-section
+{
+    z-index: 1;
+}
+.section.active
+{
+    z-index: 2;
+    opacity: 1;
+    animation: slideSection 1s ease;
+}
+@keyframes slideSection
+{
+    0%
+    {
+        transform: translateX(100%);
+    }
+    100%
+    {
+        transform: translateX(0%);
+    }
 }
 .hidden
 {
     display: none !important;
-}
-.main-content
-{
-    padding-left: 270px;
 }
 .padd-15
 {
@@ -139,6 +174,7 @@ ul
    justify-content: center;
    align-items: center;
    z-index: 10; 
+   transition: all 0.3s ease;
 }
 .aside .logo
 {
@@ -198,6 +234,7 @@ ul
     display: none;
     align-items: center;
     justify-content: center;
+    transition: all 0.3s ease;
 }
 .aside .nav-toggler span
 {
@@ -206,6 +243,10 @@ ul
     background: var(--skin-color);
     display: inline-block;
     position: relative;
+}
+.aside .nav-toggler.open span
+{
+    background-color: transparent;
 }
 .aside .nav-toggler span::before
 {
@@ -217,6 +258,11 @@ ul
     top: -6px;
     left: 0;
 }
+.aside .nav-toggler.open span::before
+{
+    transform: rotate(45deg);
+    top: 0;
+}
 .aside .nav-toggler span::after
 {
     content: '';
@@ -226,6 +272,11 @@ ul
     position: absolute;
     top: 6px;
     left: 0;
+}
+.aside .nav-toggler.open span::after
+{
+    transform: rotate(-45deg);
+    top: 0;
 }
 .aside .nav
 {
@@ -385,9 +436,8 @@ h3.my-profession
 {
     margin-top: 30px;
 }
-.about .about-content .personal-info .buttons
+.about .about-content .personal-info .buttons .btn
 {
-    margin-right: 15px;
     margin-top: 10px;
 }
 .about .about-content .skills
@@ -621,3 +671,165 @@ h3.my-profession
     width: 100%;
     display: block;
 }
+/* CONTACT */
+.contact-title
+{
+    color: var(--skin-color);
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+.contact-sub-title
+{
+    color: var(--text-black-900);
+    text-align: center;
+    font-size: 15px;
+    margin-bottom: 60px;
+}
+.contact .contact-info-item
+{
+    flex: 0 0 25%;
+    max-width: 25%;
+    text-align: center;
+    margin-bottom: 60px;
+}
+.contact .contact-info-item .icon
+{
+    display: inline-block;
+}
+.contact .contact-info-item .icon .fa
+{
+    font-size: 25px;
+    color: var(--skin-color);
+}
+.contact .contact-info-item h4
+{
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-black-900);
+    text-transform: capitalize;
+    margin: 15px 0 5px;
+}
+.contact .contact-info-item p
+{
+    font-size: 16px;
+    line-height: 25px;
+    color: var(--text-black-700);
+    font-weight: 400;
+}
+.contact .contact-form
+{
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+.contact .contact-form .col-6
+{
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+.contact .contact-form .col-12
+{
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+.contact .contact-form .form-item
+{
+    margin-bottom: 30px;
+}
+.contact .contact-form  .form-item .form-control
+{
+    width: 100%;
+    height: 50px;
+    border-radius: 25px;
+    background: var(--bg-black-100);
+    border: 1px solid var(--bg-black-50);
+    padding: 10px 25px;
+    font-size: 16px;
+    color: var(--text-black-700);
+    transition: all 0.3s ease;
+}
+.contact .contact-form  .form-item .form-control:focus
+{
+    box-shadow: 0 0 20px rgba(48, 46, 77, 0.15);
+}
+.contact .contact-form  .form-item textarea.form-control
+{
+    height: 140px;
+}
+.contact .contact-form .btn
+{
+    height: 50px;
+    padding: 0 50px;
+}
+@media (max-width:1199px)
+{
+    .section .container
+    {
+        padding-top: 70px;
+    }
+    .aside
+    {
+        left: -270px;
+    }
+    .aside.open
+    {
+        left: 0;
+    }
+    .aside .nav-toggler
+    {
+        display: flex;
+        left: 30px;
+    }
+    .aside .nav-toggler.open
+    {
+        left: 300px;
+    }
+    .section
+    {
+        left: 0;
+    }
+    .section.open
+    {
+        left: 270px;
+    }
+    .about .about-content .personal-info .info-item p span
+    {
+        display: block;
+        margin-left: 0;
+    }
+}
+@media (max-width:991px)
+{
+    .contact .contact-info-item,
+    .portfolio .portfolio-item,
+    .service .service-item
+    {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+    .home .home-info
+    {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .home .home-img
+    {
+        display: none;
+    }
+}
+@media (max-width:767px)
+{
+    .contact .contact-form .col-6,
+    .contact .contact-info-item,
+    .portfolio .portfolio-item,
+    .service .service-item,
+    .about .about-content .experience,
+    .about .about-content .education,
+    .about .about-content .skills,
+    .about .about-content .personal-info
+    {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
