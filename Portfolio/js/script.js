@@ -37,3 +37,7 @@ function removeBackSection()
         allSection[i].classList.remove("back-section");
     }
 }
+function addBackSection(num)
+{
+    allSection[num].classList.add("back-section");
+}
