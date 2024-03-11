@@ -5,7 +5,7 @@
 ![image](https://github.com/Abrorbek-Ibaydullaev/Website/assets/148473615/575bbf8f-9af2-4952-8d91-f37ee907d9bc)
 
 <!-- this is demo website for me
-
+i wil write my own experience 
 
 
 
